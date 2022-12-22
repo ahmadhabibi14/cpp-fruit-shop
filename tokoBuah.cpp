@@ -58,7 +58,7 @@ void berhasilBeli() {
 
 void beliBuah() {
    // BarangDiBeli buah;
-   int max = 5, top = 0;
+   int max = 6, top = 0;
    // string keranjangBuah[max];
    int totalHarga = 0;
    string beliLagi;
@@ -69,6 +69,7 @@ void beliBuah() {
       system("clear");
       menuBuah();
       if (top == max - 1) {
+         beliLagi == "t";
          system("clear");
          cout << "+ ======================================= + \n";
          cout << "|  Keranjang Penuh !!!                    | \n";
@@ -81,9 +82,21 @@ void beliBuah() {
                totalHarga += 7000;
                top++;
             } else if (kode == 2) {
-               BarangDiBeli[top].barang += "Jeruk";
+               BarangDiBeli[top].barang = "Jeruk";
                totalHarga += 3000;
                top++;
+            } else if (kode == 3) {
+              BarangDiBeli[top].barang = "Pepaya";
+              totalHarga += 10000;
+              top++;
+            } else if (kode == 4) {
+              BarangDiBeli[top].barang = "Stroberi";
+              totalHarga += 2000;
+              top++;
+            } else if (kode == 5) {
+              BarangDiBeli[top].barang = "Mangga";
+              totalHarga += 4000;
+              top++;
             } else {
                cout << "salahketik" << endl;
                goto inputBuah;
@@ -95,8 +108,9 @@ void beliBuah() {
       }
       cout << BarangDiBeli[top].barang << endl;
       cout << totalHarga << endl;
-      cout << "Beli buah lagi : "; cin >> beliLagi;
-   } while (beliLagi == "y");
+      cout << "Beli buah lagi (y = ya, t/random = tidak): ";
+      cin >> beliLagi;
+   } while (beliLagi == "y" || beliLagi == "Y");
 
    system("clear");
    cout << "+ ======================================= + \n";
